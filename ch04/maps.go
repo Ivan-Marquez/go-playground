@@ -63,4 +63,38 @@ func Maps() {
 	for _, name := range names {
 		fmt.Printf("%s\t%d\n", name, ages[name])
 	}
+
+	/*
+	 * Subscripting a map in this context yields two values; the second is a boolean that reports
+	 * whether the element was present. The boolean variable is often called ok, especially if it
+	 * is immediately used in an if condition.
+	 */
+
+	if age, ok := ages["bob"]; !ok {
+		/*...*/
+		fmt.Println(age)
+	}
+}
+
+/*
+ * The value type of a map can itself be a composite type, such as a map or slice. In the
+ * following code, the key type of graph is string and the value type is map[string]bool,
+ * representing a set of strings. Conceptually, graph maps a string to a set of related
+ * strings, its successors in a directed graph.
+ */
+
+var graph = make(map[string]map[string]bool)
+
+func addEgde(from, to string) {
+	edges := graph[from]
+
+	if edges == nil {
+		edges = make(map[string]bool)
+		graph[from] = edges
+	}
+	edges[to] = true
+}
+
+func hasEdge(from, to string) bool {
+	return graph[from][to]
 }
