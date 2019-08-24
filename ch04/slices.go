@@ -89,3 +89,12 @@ func NonEmpty(strings []string) []string {
 
 	return strings[:i]
 }
+
+// To remove an element from the middle of a slice, preserving the
+// order of the remaining elements, use copy to slide the higher-numbered
+// elements down by one to fill the gap:
+func remove(slice []int, i int) []int {
+	copy(slice[i:], slice[i+1:])
+
+	return slice[:len(slice)-1]
+}

@@ -16,4 +16,6 @@ func main() {
 	data := []string{"one", "", "three"}
 	fmt.Printf("%q\n", ch04.NonEmpty(data))
 	fmt.Printf("%q\n", data)
+
+	ch04.Maps()
 }
