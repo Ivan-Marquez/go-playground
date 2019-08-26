@@ -18,4 +18,13 @@ func main() {
 	fmt.Printf("%q\n", data)
 
 	ch04.Maps()
+
+	employee := ch04.Employee{
+		ID:     1,
+		Salary: 59000,
+	}
+
+	ch04.AwardAnnualRaise(&employee)
+
+	fmt.Println(employee)
 }
